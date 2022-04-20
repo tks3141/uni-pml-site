@@ -1,0 +1,77 @@
+.wrapper {
+  margin: 20px 40px 20px 60px;
+  position: relative;
+}
+
+.comment {
+  background: white;
+  border-radius: 20px;
+  padding: 10px 20px;
+	display: inline-block;
+}
+
+.comment::after {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: -3px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-color: transparent;
+  border-bottom-color: white;
+  border-width: 0px 5px 15px 3px;
+  
+  transform: rotate(-60deg);
+  display: block;
+}
+
+.main {
+  padding: 5px 40px 5px 5px;
+  background: #88AAFF;
+}
+
+.header {
+  padding: 5px;
+  position: sticky;
+	top:0;
+	z-index: 10;
+	background: #88AAFF;
+}
+
+.icon {
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  
+  top: -10px;
+  left: -50px;
+  position: absolute;
+}
+
+.icon::before {
+  content: "";
+  background-color: gray;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  
+  top: 4px;
+  left: 10px;
+  position: absolute;
+}
+
+.icon::after {
+  content: "";
+  background: gray;
+  width: 30px;
+  height: 20px;
+  border-radius: 15px 15px 15px 15px / 12px 12px 8px 8px;
+  
+  top: 20px;
+  left: 5px;
+  position: absolute;
+}
+
+
