@@ -9,7 +9,7 @@ import { Stack, Box } from '@mui/material';
 import { ParsedUrlQuery } from 'querystring';
 
 import { Day } from '../../lib/content';
-import styles from './[day].module.css';
+import styles from '../../styles/[day].module.css';
 
 
 type Props = { contents: Content[] }
