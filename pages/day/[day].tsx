@@ -11,6 +11,7 @@ import Link from 'next/link';
 
 import { Day } from '../../lib/content';
 import styles from '../../styles/[day].module.css';
+import Head from 'next/head';
 
 
 type Props = {
@@ -44,7 +45,7 @@ type LineChatProps = {
 const LineChat = (props: LineChatProps) => {
 	return (
 		<Container maxWidth="md" className={styles.main}>
-				<Box className={styles.header}>＜ {props.title}（{props.comments.length}人）</Box>
+			<Box className={styles.header}>＜ {props.title}（{props.comments.length}人）</Box>
 			<Stack spacing={0}>
 				{props.comments.map(c => (<LinePop key={c.slice(10) + c.length} comment={c} />)
 				)}
@@ -54,8 +55,14 @@ const LineChat = (props: LineChatProps) => {
 }
 
 export default function DailyResults({ contents, day }: Props) {
+	const page_title = `実践的機械学習Ⅰ ${day}`;
 	return (
-		<LineChat comments={contents} title={`実践的機械学習Ⅰ ${day}`} />
+		<>
+			<Head>
+				<title>{page_title}</title>
+			</Head>
+			<LineChat comments={contents} title={page_title} />
+		</>
 	)
 }
 
