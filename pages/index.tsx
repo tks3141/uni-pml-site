@@ -10,11 +10,11 @@ export default function Index() {
           実践的機械学習Ⅰ 2022
         </Typography>
         講義感想一覧
-        <Stack>
+        <Stack spacing={2}>
           <Box>
-            <Link href="/day/2022-04-15">
+            <Link href="/day/2022-04-15" passHref>
               <Button>
-                2022-04-15
+                ・2022-04-15
               </Button>
             </Link>
           </Box>
