@@ -24,6 +24,13 @@ export default function Index() {
                 </Button>
               </Link>
             </Box>
+            <Box>
+              <Link href="/day/2022-04-22" passHref>
+                <Button>
+                  ・2022-04-22
+                </Button>
+              </Link>
+            </Box>
           </Stack>
         </Box>
       </Container>
