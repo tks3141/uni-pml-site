@@ -4,6 +4,19 @@ import Link from 'next/link';
 import Head from 'next/head';
 import Image from 'next/image';
 
+
+const ClassLink = (props: { to: string, display_name: string }) => {
+  return (
+    <Box>
+      <Link href={props.to} passHref>
+        <Button>
+          {props.display_name}
+        </Button>
+      </Link>
+    </Box>
+  )
+}
+
 export default function Index() {
   return (
     <>
@@ -16,21 +29,10 @@ export default function Index() {
             実践的機械学習Ⅰ 2022
           </Typography>
           講義感想一覧
-          <Stack spacing={2}>
-            <Box>
-              <Link href="/day/2022-04-15" passHref>
-                <Button>
-                  ・2022-04-15
-                </Button>
-              </Link>
-            </Box>
-            <Box>
-              <Link href="/day/2022-04-22" passHref>
-                <Button>
-                  ・2022-04-22
-                </Button>
-              </Link>
-            </Box>
+          <Stack>
+            <ClassLink to="/day/2022-04-15" display_name="・2022-04-15" />
+            <ClassLink to="/day/2022-04-22" display_name="・2022-04-22" />
+            <ClassLink to="/day/2022-05-06" display_name="・2022-05-06" />
           </Stack>
         </Box>
       </Container>
