@@ -36,6 +36,8 @@ export default function Index() {
             <ClassLink to="/day/2022-05-13" display_name="・2022-05-13" />
             <ClassLink to="/day/2022-05-20" display_name="・2022-05-20" />
             <ClassLink to="/day/2022-05-27" display_name="・2022-05-27" />
+            <ClassLink to="/day/2022-06-03" display_name="・2022-06-03" />
+            <ClassLink to="/day/2022-06-10" display_name="・2022-06-10" />
           </Stack>
         </Box>
       </Container>
