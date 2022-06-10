@@ -1,20 +1,35 @@
-.wrapper {
-  margin: 20px 40px 20px 60px;
+.student {
+  margin: 20px 50px 20px 60px;
   position: relative;
 }
 
-.comment {
-  background: white;
-  border-radius: 20px;
-  padding: 10px 20px;
-	display: inline-block;
+.teacher {
+  margin: 20px 30px 20px 70px;
+  position: relative;
 }
 
-.comment::after {
+.student .comment {
+  background: white;
+  border-radius: 20px;
+  padding: 10px;
+  margin-right: auto;
+  display: inline-block;
+}
+
+.teacher .comment {
+  background: #00FF00;
+  border-radius: 20px;
+  padding: 10px;
+/*   margin-right: auto; */
+  display: inline-block;
+  right: 0px;
+}
+
+.student .comment::after {
   content: "";
   position: absolute;
-  left: -5px;
-  top: -3px;
+  left: -3px;
+  top: 25px;
   width: 0px;
   height: 0px;
   border-style: solid;
@@ -26,6 +41,22 @@
   display: block;
 }
 
+.teacher .comment::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: 25px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-color: transparent;
+  border-bottom-color: #00FF00;
+  border-width: 0px 5px 15px 3px;
+  
+  transform: rotate(60deg);
+  display: block;
+}
+
 .main {
   padding: 5px 40px 5px 5px;
   background: #88AAFF;
@@ -34,19 +65,30 @@
 .header {
   padding: 5px;
   position: sticky;
-	top:0;
-	z-index: 10;
-	background: #88AAFF;
+  top: 0;
+  z-index: 10;
+  background: #88AAFF;
 }
 
-.icon {
+.student .icon {
   background-color: white;
   width: 40px;
   height: 40px;
   border-radius: 20px;
   
-  top: -10px;
+  top: 0px;
   left: -50px;
+  position: absolute;
+}
+
+.teacher .icon {
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  
+  top: 0px;
+  right: -50px;
   position: absolute;
 }
 
@@ -74,4 +116,23 @@
   position: absolute;
 }
 
+.teacher .content{
+  position: relative;
+  display: inline-block;
+}
 
+.student .name{
+  font-family:　sans-serif;
+  margin-bottom: 5px;
+}
+
+.teacher .name{
+  font-family:　sans-serif;
+  margin-bottom: 5px;
+  display: inline-block;
+  left: 10px;
+}
+
+.wrapper{
+  text-align: right;
+}
