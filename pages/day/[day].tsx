@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import { Stack, Box } from '@mui/material';
 import { ParsedUrlQuery } from 'querystring';
 import Link from 'next/link';
+import { Button } from '@mui/material';
 
 
 import { Day } from '../../lib/content';
@@ -29,13 +30,13 @@ export default function DailyResults({ contents, day }: Props) {
 	const page_title = `実践的機械学習Ⅰ ${day}`;
 
 	const comments: LineComment[] = contents.map((m, index) => ({ message: m, pos: 'left', name: String(index + 1) }))
-
+	const repLink = <Link href={'/rep/'+day} passHref>先生からの返信</Link>;
 	return (
 		<>
 			<Head>
 				<title>{page_title}</title>
 			</Head>
-			<LineChat comments={comments} title={page_title} />
+			<LineChat comments={comments} title={page_title} top={repLink} />
 		</>
 	)
 }

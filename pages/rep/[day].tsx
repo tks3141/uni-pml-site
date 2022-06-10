@@ -31,6 +31,7 @@ const model = new ContentModel();
 
 export default function DailyResultReps({ contents, day, responses }: Props) {
 	const page_title = `実践的機械学習Ⅰ ${day}`;
+	const backLink = <Link href={'/day/'+day} passHref>コメント一覧へ</Link>;
 
 	const rep_comments: LineComment[] = Array();
 	responses.forEach(res => {
@@ -44,7 +45,7 @@ export default function DailyResultReps({ contents, day, responses }: Props) {
 			<Head>
 				<title>{page_title}</title>
 			</Head>
-			<LineChat comments={rep_comments} title={page_title} />
+			<LineChat comments={rep_comments} title={page_title} top={backLink}/>
 		</>
 	)
 }
@@ -56,7 +57,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async (context) => 
 	const responses = await getReplys(sheet_id);
 	return {
 		props: { contents, responses, day },
-		revalidate: 3600,
+		revalidate: 300,
 	};
 }
 
