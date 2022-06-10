@@ -21,7 +21,7 @@ export const getContents = async (sheet_id: string): Promise<Content[]> => {
     range: 'フォームの回答 1',
   });
   const rows = response.data.values;
-  console.log(response.data)
+  // console.log(response.data)
   if (rows) {
     const col = rows[0]
     return rows.slice(1).map((row) => {
@@ -58,7 +58,7 @@ export const getReplys = async (sheet_id: string): Promise<ContentResponse[]> =>
     range: 'シート2',
   });
 
-  console.log(rep_sheet.data)
+  // console.log(rep_sheet.data)
   const rows = rep_sheet.data.values;
   if (rows) {
     const col = rows[0]
