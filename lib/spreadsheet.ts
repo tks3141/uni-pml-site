@@ -19,22 +19,19 @@ export const getContents = async (sheet_id: string): Promise<Content[]> => {
   const response = await sheets.spreadsheets.values.get({
     spreadsheetId: sheet_id,
     range: 'フォームの回答 1',
-  }).catch(async (e) => {
+  }).catch((e) => {
     console.log(e)
-    setTimeout(async () => {
-      return await sheets.spreadsheets.values.get({
-        spreadsheetId: sheet_id,
-        range: 'フォームの回答 1',
-      })
-    }, 1000 * 101)
-  });
-  const rows = response.data.values;
-  // console.log(response.data)
-  if (rows) {
-    const col = rows[0]
-    return rows.slice(1).map((row) => {
-      return row[4] as string
-    });
+    return null
+  })
+  if (response) {
+    const rows = response.data.values;
+    // console.log(response.data)
+    if (rows) {
+      const col = rows[0]
+      return rows.slice(1).map((row) => {
+        return row[4] as string
+      });
+    }
   }
   return [];
 };
