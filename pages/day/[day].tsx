@@ -30,7 +30,7 @@ export default function DailyResults({ contents, day }: Props) {
 	const page_title = `実践的機械学習Ⅰ ${day}`;
 
 	const comments: LineComment[] = contents.map((m, index) => ({ message: m, pos: 'left', name: String(index + 1) }))
-	const repLink = <Link href={'/rep/'+day} passHref>先生からの返信</Link>;
+	const repLink = <Link href={'/rep/' + day} passHref><Button color='secondary'><Typography>先生からの返信</Typography></Button></Link>;
 	return (
 		<>
 			<Head>

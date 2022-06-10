@@ -23,15 +23,12 @@ export const getContents = async (sheet_id: string): Promise<Content[]> => {
     console.log(e)
     return null
   })
-  if (response) {
+  if (response && response.data.values) {
     const rows = response.data.values;
-    // console.log(response.data)
-    if (rows) {
-      const col = rows[0]
-      return rows.slice(1).map((row) => {
-        return row[4] as string
-      });
-    }
+    const col = rows[0]
+    return rows.slice(1).map((row) => {
+      return row[4] as string
+    });
   }
   return [];
 };
@@ -42,34 +39,36 @@ export const getContents = async (sheet_id: string): Promise<Content[]> => {
 
 export const getReplys = async (sheet_id: string): Promise<ContentResponse[]> => {
   const sheets = getSheets();
-  const sheets_info = await sheets.spreadsheets.get({
-    spreadsheetId: sheet_id,
-  })
+  // const sheets_info = await sheets.spreadsheets.get({
+  //   spreadsheetId: sheet_id,
+  // })
 
-  if (sheets_info.data.sheets && sheets_info.data.sheets.length >= 2) {
-    // none
-  } else {
-    // todo create sheets
-    // sheets.spreadsheets.create({
-    //   requestBody:{
-    //     spreadsheetId: sheet_id,
+  // if (sheets_info.data.sheets && sheets_info.data.sheets.length >= 2) {
+  //   // none
+  // } else {
+  //   // todo create sheets
+  //   // sheets.spreadsheets.create({
+  //   //   requestBody:{
+  //   //     spreadsheetId: sheet_id,
 
-    //   }
-    // })
-  }
+  //   //   }
+  //   // })
+  // }
 
   const rep_sheet = await sheets.spreadsheets.values.get({
     spreadsheetId: sheet_id,
     range: 'シート2',
+  }).catch((e) => {
+    console.log(e)
+    return null
   });
 
   // console.log(rep_sheet.data)
-  const rows = rep_sheet.data.values;
-  if (rows) {
-    const col = rows[0]
-    return rows.slice(1).map((row) => {
+  if (rep_sheet && rep_sheet.data.values) {
+    const rows = rep_sheet.data.values;
+    return rows.filter(row=> row[0] != 'id').map((row) => {
       return {
-        to: row[0],
+        to: parseInt(row[0],10),
         message: row[1]
       }
     });

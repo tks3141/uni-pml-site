@@ -4,7 +4,7 @@ import { getContents, getReplys } from '../../lib/spreadsheet';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { Stack, Box } from '@mui/material';
+import { Stack, Box, Button } from '@mui/material';
 import { ParsedUrlQuery } from 'querystring';
 import Link from 'next/link';
 
@@ -31,11 +31,11 @@ const model = new ContentModel();
 
 export default function DailyResultReps({ contents, day, responses }: Props) {
 	const page_title = `実践的機械学習Ⅰ ${day}`;
-	const backLink = <Link href={'/day/'+day} passHref>コメント一覧へ</Link>;
+	const backLink = <Link href={'/day/'+day} passHref><Button>コメント一覧へ</Button></Link>;
 
 	const rep_comments: LineComment[] = Array();
 	responses.forEach(res => {
-		const t_comment: LineComment = { message: contents[res.to+1], pos: 'left', name: String(res.to) }
+		const t_comment: LineComment = { message: contents[res.to-1], pos: 'left', name: String(res.to) }
 		const rep_comment: LineComment = { message: res.message, pos: 'right' };
 		rep_comments.push(t_comment, rep_comment)
 	});
