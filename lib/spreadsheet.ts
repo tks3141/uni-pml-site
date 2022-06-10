@@ -66,7 +66,7 @@ export const getReplys = async (sheet_id: string): Promise<ContentResponse[]> =>
   // console.log(rep_sheet.data)
   if (rep_sheet && rep_sheet.data.values) {
     const rows = rep_sheet.data.values;
-    return rows.filter(row=> row[0] != 'id').map((row) => {
+    return rows.filter(row=> row[0] && row[0] != 'id').map((row) => {
       return {
         to: parseInt(row[0],10),
         message: row[1]
