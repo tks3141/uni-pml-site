@@ -28,7 +28,7 @@ export function LinePop(props: LineComment) {
     return (
       <Box className={styles.student}>
         <div className={styles.icon}></div>
-        <div className={styles.name}>生徒-{props.name}</div>
+        <div className={styles.name}>学生-{props.name}</div>
         <div className={styles.comment}>{props.message}</div>
         {/* <div> ○月○日○時○分○</div> */}
       </Box>
