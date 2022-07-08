@@ -45,7 +45,7 @@ export default function DailyResultReps({ contents, day, responses }: Props) {
 			<Head>
 				<title>{page_title}</title>
 			</Head>
-			<LineChat comments={rep_comments} title={page_title} top={backLink}/>
+			<LineChat comments={rep_comments} title={page_title} top={backLink} num_members={rep_comments.length/2}/>
 		</>
 	)
 }

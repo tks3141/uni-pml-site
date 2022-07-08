@@ -1,12 +1,13 @@
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import { Stack, Box } from '@mui/material';
+import { Stack, Box, Button } from '@mui/material';
 
 
 import { Day } from '../lib/content';
 import styles from '../styles/[day].module.css';
 import { ContentResponse } from '../domain/response';
 import { ReactNode } from 'react';
+import Link from 'next/link';
 
 export function LinePop(props: LineComment) {
   if (props.pos == 'right') {
@@ -49,14 +50,20 @@ export interface LineChatProps {
   comments: LineComment[],
   title: string,
   date?: string,
-  to?: () => {},
+  // to?: () => {},
+  href?: string,
   top?: ReactNode,
+  num_members?: number,
 }
 
 export function LineChat(props: LineChatProps) {
+  const num_members = props.num_members || props.comments.length;
+
+  const title_with_link = <Link href={props.href || '/'} passHref><Button>＜ {props.title}</Button></Link>;
+
   return (
     <Container maxWidth="md" className={styles.main}>
-      <Box className={styles.header}>＜ {props.title}（{props.comments.length}人） {props.top}</Box>
+      <Box className={styles.header}>{title_with_link}（{num_members}人） {props.top}</Box>
       <Stack spacing={0}>
         {props.comments.map((c, index) => (<LinePop {...c} key={index + 1} />)
         )}
