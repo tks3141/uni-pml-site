@@ -133,6 +133,10 @@
   left: 10px;
 }
 
-.wrapper{
+.right_wrapper{
   text-align: right;
+}
+
+.left_wrapper{
+  text-align: left;
 }
