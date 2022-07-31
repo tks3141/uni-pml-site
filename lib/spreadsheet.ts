@@ -14,7 +14,7 @@ const getSheets = () => {
   return google.sheets({ version: 'v4', auth: jwt });
 };
 
-export const getContents = async (sheet_id: string): Promise<Content[]> => {
+export const getContents = async (sheet_id: string, n_col = 4): Promise<Content[]> => {
   const sheets = getSheets();
   const response = await sheets.spreadsheets.values.get({
     spreadsheetId: sheet_id,
@@ -27,7 +27,7 @@ export const getContents = async (sheet_id: string): Promise<Content[]> => {
     const rows = response.data.values;
     const col = rows[0]
     return rows.slice(1).map((row) => {
-      return row[4] as string
+      return row[n_col] as string
     });
   }
   return [];
@@ -37,7 +37,7 @@ export const getContents = async (sheet_id: string): Promise<Content[]> => {
 
 // }
 
-export const getReplys = async (sheet_id: string): Promise<ContentResponse[]> => {
+export const getReplys = async (sheet_id: string,target = 'シート2'): Promise<ContentResponse[]> => {
   const sheets = getSheets();
   // const sheets_info = await sheets.spreadsheets.get({
   //   spreadsheetId: sheet_id,
@@ -57,7 +57,7 @@ export const getReplys = async (sheet_id: string): Promise<ContentResponse[]> =>
 
   const rep_sheet = await sheets.spreadsheets.values.get({
     spreadsheetId: sheet_id,
-    range: 'シート2',
+    range: target,
   }).catch((e) => {
     console.log(e)
     return null
@@ -66,9 +66,9 @@ export const getReplys = async (sheet_id: string): Promise<ContentResponse[]> =>
   // console.log(rep_sheet.data)
   if (rep_sheet && rep_sheet.data.values) {
     const rows = rep_sheet.data.values;
-    return rows.filter(row=> row[0] && row[0] != 'id').map((row) => {
+    return rows.filter(row => row[0] && row[0] != 'id').map((row) => {
       return {
-        to: parseInt(row[0],10),
+        to: parseInt(row[0], 10),
         message: row[1]
       }
     });
