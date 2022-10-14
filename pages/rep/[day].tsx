@@ -30,7 +30,7 @@ const model = new ContentModel();
 
 
 export default function DailyResultReps({ contents, day, responses }: Props) {
-	const page_title = `実践的機械学習Ⅰ ${day}`;
+	const page_title = `実践的機械学習Ⅱ ${day}`;
 	const backLink = <Link href={'/day/'+day} passHref><Button>コメント一覧へ</Button></Link>;
 
 	const rep_comments: LineComment[] = Array();

@@ -26,10 +26,14 @@ interface Params extends ParsedUrlQuery {
 
 const model = new ContentModel();
 
-export default function DailyResults({ contents, day }: Props) {
-	const page_title = `実践的機械学習Ⅰ ${day}`;
+const a = (day: Day) => {};
 
-	const comments: LineComment[] = contents.map((m, index) => ({ message: m, pos: 'left', name: String(index + 1) }))
+export default function DailyResults({ contents, day }: Props) {
+	const page_title = `実践的機械学習Ⅱ ${day}`;
+
+	const comments: LineComment[] = contents.map((m, index) : LineComment => (
+		{ message: m, pos: "left", name: String(index + 1) })
+	).reverse();
 	const repLink = <Link href={'/rep/' + day} passHref><Button color='secondary'><Typography>先生からの返信</Typography></Button></Link>;
 	return (
 		<>

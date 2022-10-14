@@ -27,7 +27,7 @@ interface Params extends ParsedUrlQuery {
 const model = new ContentModel();
 
 export default function DailyResults({ contents, day }: Props) {
-	const page_title = `実践的機械学習Ⅰ ${day}`;
+	const page_title = `実践的機械学習Ⅱ ${day}`;
 
 	const comments: LineComment[] = contents.map((m, index) => ({ message: m, pos: 'left', name: String(index + 1) }))
 	const repLink = <Link href={'/rep/last_report'} passHref><Button color='secondary'><Typography>先生からの返信</Typography></Button></Link>;

@@ -2,8 +2,8 @@ import { Html, Head, Main, NextScript } from 'next/document';
 
 const MyDocument = () => {
 	const url = '<https://tohoku-pml.vercel.app>';
-	const title = '実践的機械学習Ⅰ 2022';
-	const description = '実践的機械学習Ⅰ 2022の仮サイト';
+	const title = '実践的 機械学習Ⅱ 2022';
+	const description = '実践的 機械学習Ⅱ 2022のポータルサイト';
 
 	return (
 		<Html lang="ja-JP">

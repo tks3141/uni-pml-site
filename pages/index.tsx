@@ -21,18 +21,18 @@ export default function Index() {
   return (
     <>
       <Head>
-        <title>実践的機械学習Ⅰ 2022</title>
+        <title>実践的機械学習Ⅱ 2022</title>
       </Head>
       <Container maxWidth="sm">
         <Box sx={{ my: 4 }}>
           <Typography variant="h4" component="h1" gutterBottom>
-            実践的機械学習Ⅰ 2022
+            実践的機械学習Ⅱ 2022
           </Typography>
           講義感想一覧
           <Stack>
-            <ClassLink to="/day/2022-04-15" display_name="・2022-04-15" />
-            <ClassLink to="/day/2022-04-22" display_name="・2022-04-22" />
-            <ClassLink to="/day/2022-05-06" display_name="・2022-05-06" />
+            <ClassLink to="/day/2022-10-07" display_name="・2022-10-07" />
+            <ClassLink to="/day/2022-10-14" display_name="・2022-10-14" />
+            {/* <ClassLink to="/day/2022-05-06" display_name="・2022-05-06" />
             <ClassLink to="/day/2022-05-13" display_name="・2022-05-13" />
             <ClassLink to="/day/2022-05-20" display_name="・2022-05-20" />
             <ClassLink to="/day/2022-05-27" display_name="・2022-05-27" />
@@ -44,7 +44,7 @@ export default function Index() {
             <ClassLink to="/day/2022-07-08" display_name="・2022-07-08" />
             <ClassLink to="/day/2022-07-15" display_name="・2022-07-15" />
             <ClassLink to="/day/2022-07-22" display_name="・2022-07-22" />
-            <ClassLink to="/day/last_report" display_name="・全体を通して学んだことなど" />
+            <ClassLink to="/day/last_report" display_name="・全体を通して学んだことなど" /> */}
           </Stack>
         </Box>
       </Container>
