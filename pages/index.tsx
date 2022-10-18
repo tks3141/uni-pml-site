@@ -30,7 +30,7 @@ export default function Index() {
           </Typography>
           講義感想一覧
           <Stack>
-            <ClassLink to="/day/2022-10-07" display_name="・2022-10-07" />
+            <ClassLink to="/day/2022-10-07" display_name="授業にかける意気込み" />
             <ClassLink to="/day/2022-10-14" display_name="・2022-10-14" />
             {/* <ClassLink to="/day/2022-05-06" display_name="・2022-05-06" />
             <ClassLink to="/day/2022-05-13" display_name="・2022-05-13" />
