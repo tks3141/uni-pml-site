@@ -35,7 +35,7 @@ export default function DailyResultReps({ contents, day, responses }: Props) {
 
 	const rep_comments: LineComment[] = Array();
 	responses.forEach(res => {
-		const t_comment: LineComment = { message: contents[res.to-1], pos: 'left', name: String(res.to) }
+		const t_comment: LineComment = { message: contents[res.to - 1], pos: 'left', name: String(res.to) }
 		const rep_comment: LineComment = { message: res.message, pos: 'right' };
 		rep_comments.push(t_comment, rep_comment)
 	});
@@ -45,18 +45,23 @@ export default function DailyResultReps({ contents, day, responses }: Props) {
 			<Head>
 				<title>{page_title}</title>
 			</Head>
-			<LineChat comments={rep_comments} title={page_title} top={backLink} num_members={rep_comments.length/2}/>
+			<LineChat comments={rep_comments} title={page_title} top={backLink} num_members={rep_comments.length / 2} />
 		</>
 	)
 }
 
 export const getStaticProps: GetStaticProps<Props, Params> = async (context) => {
-	const day = '2022-07-22';
-	const sheet_id = model.get_sheet_id(day);
-	const contents = await getContents(sheet_id,6);
-	const responses = await getReplys(sheet_id,'シート3');
-	return {
-		props: { contents, responses, day },
-		revalidate: 300,
-	};
+	const day = model.get_last_day();
+	const { sheet_id, n_col } = model.get_sheet_id(day);
+	const contents = await getContents(sheet_id, 6);
+	const responses = await getReplys(sheet_id, 'シート3');
+	// todo : ここをラストレポートがあるかどうかで分岐させる
+	if (false) {
+		return {
+			props: { contents, responses, day },
+			revalidate: 300,
+		}
+	} else {
+		return { props: { contents: [], responses: [], day: day } };
+	}
 }

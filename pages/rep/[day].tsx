@@ -52,7 +52,7 @@ export default function DailyResultReps({ contents, day, responses }: Props) {
 
 export const getStaticProps: GetStaticProps<Props, Params> = async (context) => {
 	const { day } = context.params!;
-	const sheet_id = model.get_sheet_id(day);
+	const {sheet_id,n_col} = model.get_sheet_id(day);
 	const contents = await getContents(sheet_id);
 	const responses = await getReplys(sheet_id);
 	return {

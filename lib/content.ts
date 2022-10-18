@@ -34,4 +34,9 @@ export class ContentModel {
   get_sheet_id = (day: Day) => {
     return this.sheet_ids[day];
   }
+
+  get_last_day = () => {
+    const keys = Object.keys(this.sheet_ids);
+    return keys[keys.length - 1];
+  }
 }

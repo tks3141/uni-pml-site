@@ -29,15 +29,16 @@ export const getContents = async (sheet_id: string, n_col = 4): Promise<Content[
     return rows.slice(1).map((row) => {
       return row[n_col] as string
     });
+  } else {
+    return [];
   }
-  return [];
 };
 
 // const createRepSheet = async (): => {
 
 // }
 
-export const getReplys = async (sheet_id: string,target = 'シート2'): Promise<ContentResponse[]> => {
+export const getReplys = async (sheet_id: string, target = 'シート2'): Promise<ContentResponse[]> => {
   const sheets = getSheets();
   // const sheets_info = await sheets.spreadsheets.get({
   //   spreadsheetId: sheet_id,
@@ -72,6 +73,7 @@ export const getReplys = async (sheet_id: string,target = 'シート2'): Promise
         message: row[1]
       }
     });
+  } else {
+    return [];
   }
-  return [];
 };

@@ -42,11 +42,16 @@ export default function DailyResults({ contents, day }: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props, Params> = async (context) => {
-	const day = '2022-07-22';
-	const sheet_id = model.get_sheet_id(day);
+	const day = model.get_last_day();
+	const { sheet_id, n_col } = model.get_sheet_id(day);
 	const contents = await getContents(sheet_id, 6);
-	return {
-		props: { contents, day },
-		revalidate: 3600,
-	};
+	// todo : ここをラストレポートがあるかどうかで分岐させる
+	if (false) {
+		return {
+			props: { contents, day },
+			revalidate: 300,
+		};
+	} else {
+		return { props: { contents: [], responses: [], day: day } };
+	}
 }
