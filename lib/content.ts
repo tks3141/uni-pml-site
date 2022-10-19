@@ -27,7 +27,7 @@ export class ContentModel {
 
   constructor() {
     this.data.forEach(e => {
-      this.sheet_ids[e.day] = e.n_col ? { sheet_id: e.sheet_id, n_col: e.n_col } : { sheet_id: e.sheet_id, n_col: 4 };
+      this.sheet_ids[e.day] = { sheet_id: e.sheet_id, n_col: e.n_col || 4 } ;
     });
   }
 

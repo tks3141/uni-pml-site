@@ -48,7 +48,7 @@ export default function DailyResults({ contents, day }: Props) {
 export const getStaticProps: GetStaticProps<Props, Params> = async (context) => {
 	const { day } = context.params!;
 	const {sheet_id,n_col} = model.get_sheet_id(day);
-	const contents = await getContents(sheet_id);
+	const contents = await getContents(sheet_id, n_col);
 	return {
 		props: { contents, day },
 		revalidate: 3600,
