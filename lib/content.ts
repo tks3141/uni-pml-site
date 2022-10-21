@@ -14,7 +14,7 @@ type FormData = {
 export const form_datas: FormData[] =
   [{ sheet_id: '1YImOf1T5XqnGr5m5CM5LOatyYa_P5NtU7w-mviqotME', day: '2022-10-07', n_col: 8 },
   { sheet_id: '1vSIJ1ayXrw75woVU8MaWJC1z-a1757NFB0-kpI0CWXk', day: '2022-10-14' },
-    // { sheet_id: '', day: '2022-05-06' },
+  { sheet_id: '1sHuY2eooMs_21XTcOaBgbG34KsZgmDhRkkDUponl2', day: '2022-10-21' },
     // { sheet_id: '', day: '2022-05-13' },
     // { sheet_id: '', day: '2022-05-20' },
     // { sheet_id: '', day: '2022-05-27' },
@@ -27,7 +27,7 @@ export class ContentModel {
 
   constructor() {
     this.data.forEach(e => {
-      this.sheet_ids[e.day] = { sheet_id: e.sheet_id, n_col: e.n_col || 4 } ;
+      this.sheet_ids[e.day] = { sheet_id: e.sheet_id, n_col: e.n_col || 4 };
     });
   }
 
