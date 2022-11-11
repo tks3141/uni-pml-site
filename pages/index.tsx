@@ -34,19 +34,16 @@ export default function Index() {
             <ClassLink to="/day/2022-10-14" display_name="・2022-10-14" />
             <ClassLink to="/day/2022-10-21" display_name="・2022-10-21" />
             <ClassLink to="/day/2022-11-04" display_name="・2022-11-04" />
-            {/* <ClassLink to="/day/2022-05-06" display_name="・2022-05-06" />
-            <ClassLink to="/day/2022-05-13" display_name="・2022-05-13" />
-            <ClassLink to="/day/2022-05-20" display_name="・2022-05-20" />
-            <ClassLink to="/day/2022-05-27" display_name="・2022-05-27" />
-            <ClassLink to="/day/2022-06-03" display_name="・2022-06-03" />
-            <ClassLink to="/day/2022-06-10" display_name="・2022-06-10" />
-            <ClassLink to="/day/2022-06-17" display_name="・2022-06-17" />
-            <ClassLink to="/day/2022-06-24" display_name="・2022-06-24" />
-            <ClassLink to="/day/2022-07-01" display_name="・2022-07-01" />
-            <ClassLink to="/day/2022-07-08" display_name="・2022-07-08" />
-            <ClassLink to="/day/2022-07-15" display_name="・2022-07-15" />
-            <ClassLink to="/day/2022-07-22" display_name="・2022-07-22" />
-            <ClassLink to="/day/last_report" display_name="・全体を通して学んだことなど" /> */}
+            <ClassLink to="/day/2022-11-11" display_name="・2022-11-11" />
+            <ClassLink to="/day/2022-11-18" display_name="・2022-11-18" />
+            <ClassLink to="/day/2022-11-25" display_name="・2022-11-25" />
+            <ClassLink to="/day/2022-12-02" display_name="・2022-12-02" />
+            <ClassLink to="/day/2022-12-09" display_name="・2022-12-09" />
+            <ClassLink to="/day/2022-12-16" display_name="・2022-12-16" />
+            <ClassLink to="/day/2022-12-23" display_name="・2022-12-23" />
+            <ClassLink to="/day/2023-01-06" display_name="・2023-01-06" />
+            <ClassLink to="/day/2023-01-20" display_name="・2023-01-20" />
+            {/* <ClassLink to="/day/last_report" display_name="・全体を通して学んだことなど" /> */}
           </Stack>
         </Box>
       </Container>
